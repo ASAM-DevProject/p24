@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>تاریخ</label>
+        <div>{{visits.date}}</div>
+        <hr>
+        <label>زمان</label>
+        <div>{{visits.time}}</div>
+        <hr>
+        <label>هزینه ویزیت</label>
+        <div>{{visits.specialization.cost}} تومان</div>
+        <hr>
+        <label>دکتر</label>
+        <div>دکتر {{visits.doctor.first_name}} {{visits.doctor.last_name}}</div>
+        <hr>
+        <a href="{% url 'visit:reserv_visit' visits.id %}">رزرو</a>
+    </div>
+</body>
+</html>

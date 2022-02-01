@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated and user.is_sick == True %}
+        {{object.first_name}}<br>
+        {{object.last_name}}<br>
+        {{object.national_code}}<br>
+        {{object.birth_certificate_code}}<br>
+        {{object.father_name}}<br>
+        {{object.province_of_residence}}<br>
+        {{object.phone_number}}<br>
+        {% if object.image_profil %}
+        <img src="{{  object.image_profile.url}}" width="100px" height="100px" style="border-radius: 50%;"><br>
+        {% endif %}
+        <h4><a href="{% url 'visit:list_visit_sick' %}">نوبت های من</a></h4>
+    {% elif user.is_authenticated and user.is_doctor == True %}
+        {{object.first_name}}<br>
+        {{object.last_name}}<br>
+        {{object.address_office}}<br>
+        {{object.expertise}}<br>
+        {{object.telphone_number_office}}<br>
+        <img src="{{object.image_profile.url}}" width="100px", height="100px" style="border-radius: 50%;"><br>
+        <h4><a href="{% url 'visit:list_visit_dr' %}">مشاهده نوبت های گرفته شده .</a></h4>
+        <h4><a href="{% url 'visit:create_visit_table' %}">اضافه کردن ویزیت</a></h4>
+        
+    {% endif %}
+</body>
+</html>
